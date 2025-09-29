@@ -1,0 +1,313 @@
+/* Components.css - Nike-inspired styles for all component pages */
+:root {
+  --nike-black: #111111;
+  --nike-white: #ffffff;
+  --nike-gray: #7e7e7e;
+  --nike-light-gray: #f5f5f5;
+  --nike-dark-gray: #333333;
+  --nike-red: #e60012;
+  --nike-orange: #ff6b00;
+  --nike-gradient: linear-gradient(135deg, #111111 0%, #333333 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+.page-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--nike-black);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--nike-black) 0%, var(--nike-gray) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.3rem;
+  color: var(--nike-gray);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--nike-black);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--nike-gray);
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+/* Nike-style Product Card */
+.product-card {
+  background: var(--nike-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--nike-gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover::before {
+  transform: scaleX(1);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: var(--nike-light-gray);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--nike-red);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-info {
+  padding: 2rem;
+}
+
+.product-category {
+  font-size: 0.85rem;
+  color: var(--nike-gray);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--nike-black);
+  margin: 0.5rem 0;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.product-description {
+  font-size: 0.95rem;
+  color: var(--nike-gray);
+  margin: 0.8rem 0;
+  line-height: 1.5;
+}
+
+.product-price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--nike-black);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  color: var(--nike-orange);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.add-to-cart-btn {
+  background: var(--nike-black);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.add-to-cart-btn:hover::before {
+  left: 100%;
+}
+
+.add-to-cart-btn:hover {
+  background: var(--nike-dark-gray);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Nike-style Grid Layout */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+/* Featured Section */
+.featured-section {
+  background: var(--nike-gradient);
+  color: white;
+  padding: 4rem 0;
+  margin: 4rem 0;
+  border-radius: 20px;
+}
+
+.featured-section .section-title {
+  color: white;
+  background: none;
+  -webkit-text-fill-color: white;
+}
+
+.featured-section .product-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .page-title {
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .product-image {
+    height: 280px;
+  }
+  
+  .product-info {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-image {
+    height: 250px;
+  }
+}
+
+/* Animation for page load */
+@keyframes nikeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: nikeSlideIn 0.6s ease-out;
+}
+
+/* Hover effects for interactive elements */
+.product-card:hover .product-name {
+  color: var(--nike-red);
+  transition: color 0.3s ease;
+}
+
+/* Nike-style focus states */
+.add-to-cart-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.3);
+}
